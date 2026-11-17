@@ -4,7 +4,7 @@
 
 Plataforma pessoal de gestão de performance: treino, alimentação e evolução física em um só lugar, com inteligência artificial integrada aos dados do próprio usuário.
 
-**Status:** 🟡 Em desenvolvimento — Release 1 (Treino), Fim de Semana 1 de 8.
+**Status:** 🟡 Em desenvolvimento — Release 1 (Treino), Fim de Semana 1 de 8. Situação detalhada em [`docs/estado-do-projeto.md`](./docs/estado-do-projeto.md).
 
 ---
 
@@ -33,6 +33,10 @@ Quem treina sem registrar cargas tende a estagnar: esquece o que fez na última 
 
 ### Fora da Release 1
 Alimentação (R2), IA e contexto (R3), assistente e relatórios (R4). Integração com relógios, hábitos e recursos sociais estão no backlog de ideias futuras.
+
+## Mercado e estratégia
+
+O AGON entra num mercado com concorrentes maduros (Hevy, Strong, JEFIT, Fitbod, MyFitnessPal e apps de academia como o da Smart Fit). Registrar treino e sugerir progressão **não são diferenciais**. As hipóteses de diferencial — transparência das regras de progressão, contexto brasileiro e integração para quem usa várias ferramentas — serão validadas com usuários antes da R2. Detalhes em [`docs/pesquisa-de-mercado.md`](./docs/pesquisa-de-mercado.md).
 
 ## Stack
 
@@ -66,11 +70,9 @@ Dentro de cada módulo da API: `routes → service → rules / repository`. Regr
 
 | ADR | Decisão |
 | --- | --- |
-| ADR-001 | Stack híbrida: Supabase para banco e login; API própria concentra as regras de negócio |
-| ADR-002 | Hospedagem gratuita: Cloudflare Pages + Workers + Supabase Free |
-| ADR-003 | Acesso ao banco apenas pela API, com filtro por usuário em todo SQL e testes de isolamento entre contas |
-
-Detalhes em [`docs/`](./docs).
+| [ADR-0001](./docs/adr/0001-stack-hibrida.md) | Stack híbrida: Supabase para banco e login; API própria concentra as regras de negócio |
+| [ADR-0002](./docs/adr/0002-hospedagem.md) | Hospedagem gratuita: Cloudflare Pages + Workers + Supabase Free |
+| [ADR-0003](./docs/adr/0003-acesso-ao-banco.md) | Acesso ao banco apenas pela API, com filtro por usuário em todo SQL e testes de isolamento entre contas |
 
 ## Como rodar localmente
 
@@ -84,10 +86,13 @@ npm run dev -w apps/web   # App em http://localhost:5173
 
 ## Documentação
 
-- Especificação de Requisitos de Software (v1.2)
-- Documento de Arquitetura (v1.1)
-- Identidade Visual (rascunho)
-- Protótipo de alta fidelidade da Release 1
+Índice completo em [`docs/README.md`](./docs/README.md):
+
+- [Estado do projeto](./docs/estado-do-projeto.md) — etapa atual, decisões e pendências
+- [Especificação de Requisitos de Software](./docs/requisitos.md) (v1.2)
+- [Documento de Arquitetura](./docs/arquitetura.md) (v1.1)
+- [Identidade Visual](./docs/identidade-visual.md) (rascunho) — símbolo em [`assets/marca`](./assets/marca)
+- [Pesquisa de mercado e estratégia](./docs/pesquisa-de-mercado.md)
 
 ## Convenções
 
@@ -98,7 +103,8 @@ npm run dev -w apps/web   # App em http://localhost:5173
 ## Roadmap
 
 - [x] Etapa 0 — Requisitos, arquitetura e protótipo aprovados
-- [ ] Etapa 1 — Walking skeleton
+- [ ] Etapa 1 — Walking skeleton ← atual
+- [ ] Descoberta em paralelo — teste do Hevy e entrevistas com 5 pessoas
 - [ ] Etapa 2 — Banco e autenticação
 - [ ] Etapa 3 — Exercícios e fichas
 - [ ] Etapa 4 — Registro na academia
